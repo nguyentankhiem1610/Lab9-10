@@ -1,28 +1,30 @@
-PHP MVC Blog - Lab 9 & 10
-Giới thiệu
+# PHP MVC Blog - Lab 9 & 10
 
-Đây là một ứng dụng Blog đơn giản được xây dựng bằng PHP theo mô hình MVC (Model - View - Controller).
+## Giới thiệu
+
+Đây là một ứng dụng **Blog đơn giản được xây dựng bằng PHP theo mô hình MVC (Model - View - Controller)**.
 Ứng dụng cho phép người dùng:
 
-Xem danh sách bài viết
+* Xem danh sách bài viết
+* Tạo bài viết mới
+* Lưu thông tin bài viết vào cơ sở dữ liệu MySQL
 
-Tạo bài viết mới
+Mục tiêu của project là giúp sinh viên hiểu cách tổ chức code theo mô hình **MVC** trong PHP thuần.
 
-Lưu thông tin bài viết vào cơ sở dữ liệu MySQL
+---
 
-Mục tiêu của project là giúp sinh viên hiểu cách tổ chức code theo mô hình MVC trong PHP thuần.
+# Công nghệ sử dụng
 
-Công nghệ sử dụng
+* **PHP**
+* **MySQL**
+* **HTML / CSS**
+* **MVC Architecture**
 
-PHP
+---
 
-MySQL
+# Cấu trúc thư mục
 
-HTML / CSS
-
-MVC Architecture
-
-Cấu trúc thư mục
+```
 Lab9+10
 │
 ├── app
@@ -46,50 +48,69 @@ Lab9+10
 │
 └── public
     └── index.php
-Mô hình MVC
-Model
+```
 
-Chịu trách nhiệm làm việc với cơ sở dữ liệu.
+---
 
-File:
-app/models/PostModel.php
+# Mô hình MVC
+
+## Model
+
+* Chịu trách nhiệm làm việc với cơ sở dữ liệu.
+* File:
+  `app/models/PostModel.php`
 
 Chức năng:
 
-Lấy danh sách bài viết
+* Lấy danh sách bài viết
+* Thêm bài viết mới
 
-Thêm bài viết mới
+---
 
-View
+## View
 
 Chịu trách nhiệm hiển thị giao diện người dùng.
 
 Các file:
 
+```
 home.php
 createpost.php
 style.css
-Controller
+```
+
+---
+
+## Controller
 
 Xử lý logic giữa Model và View.
 
 File:
 
+```
 PostController.php
+```
 
 Chức năng:
 
-Hiển thị danh sách bài viết
+* Hiển thị danh sách bài viết
+* Hiển thị form tạo bài viết
+* Lưu bài viết vào database
 
-Hiển thị form tạo bài viết
+---
 
-Lưu bài viết vào database
+# Database
 
-Database
-Tạo database
+## Tạo database
+
+```
 CREATE DATABASE db_post;
 USE db_post;
-Tạo bảng
+```
+
+## Tạo bảng
+
+```
 CREATE TABLE posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -97,50 +118,94 @@ CREATE TABLE posts (
     author VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-Cấu hình database
+```
+
+---
+
+# Cấu hình database
 
 File:
 
+```
 config/config.php
+```
+
+```
 define("HOST", "localhost");
 define("DB", "db_post");
 define("USER", "root");
 define("PASSWORD", "");
-Cách chạy project
-Bước 1
+```
 
-Clone hoặc tải project về thư mục htdocs của XAMPP.
+---
+
+# Cách chạy project
+
+## Bước 1
+
+Clone hoặc tải project về thư mục **htdocs** của XAMPP.
 
 Ví dụ:
 
+```
 C:\xampp\htdocs\Lab9+10
-Bước 2
+```
 
-Mở phpMyAdmin và import database.
+---
 
-Bước 3
+## Bước 2
+
+Mở **phpMyAdmin** và import database.
+
+---
+
+## Bước 3
 
 Chạy project bằng trình duyệt:
 
+```
 http://localhost/Lab9+10/public/
-Chức năng hiện có
+```
 
-Hiển thị danh sách bài viết
+---
 
-Tạo bài viết
+# Chức năng hiện có
 
-Lưu bài viết vào MySQL
+* Hiển thị danh sách bài viết
+* Tạo bài viết
+* Lưu bài viết vào MySQL
+* Hiển thị tác giả
+* Hiển thị ngày đăng bài
 
-Hiển thị tác giả
+---
 
-Hiển thị ngày đăng bài
-
-Giao diện
+# Giao diện
 
 Ứng dụng có:
 
-Trang Danh sách bài viết
+* Trang **Danh sách bài viết**
+* Trang **Tạo bài viết**
 
-Trang Tạo bài viết
+Giao diện được thiết kế bằng **CSS cơ bản** để dễ hiểu và dễ chỉnh sửa.
 
-Giao diện được thiết kế bằng CSS cơ bản để dễ hiểu và dễ chỉnh sửa.
+---
+
+# Tác giả
+
+Sinh viên thực hiện: **Sky**
+
+Project phục vụ cho mục đích **học tập và thực hành mô hình MVC trong PHP**.
+
+---
+
+# Ghi chú
+
+Đây là project PHP MVC cơ bản nhằm mục đích học tập.
+Có thể mở rộng thêm các chức năng:
+
+* Sửa bài viết
+* Xóa bài viết
+* Phân trang
+* Đăng nhập người dùng
+* Upload hình ảnh
+* Bootstrap UI
