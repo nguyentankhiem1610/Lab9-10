@@ -1,0 +1,101 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* nền trang */
+body {
+  background: #eef2f7;
+  padding: 40px;
+}
+
+/* tiêu đề */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* container ở giữa */
+.container {
+  width: 700px;
+  margin: auto;
+}
+
+/* nút */
+a,
+button {
+  background: #3498db;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover,
+button:hover {
+  background: #2980b9;
+}
+
+/* bài viết */
+.post {
+  background: white;
+  border-left: 5px solid #3498db;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* tiêu đề bài */
+.post h2 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+/* nội dung */
+.post p {
+  margin-bottom: 6px;
+  color: #555;
+}
+
+/* form tạo bài viết */
+form {
+  width: 450px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* label */
+label {
+  margin-top: 10px;
+  display: block;
+}
+
+/* input */
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* textarea */
+textarea {
+  height: 120px;
+}
+
+/* nút submit */
+button {
+  margin-top: 15px;
+}
