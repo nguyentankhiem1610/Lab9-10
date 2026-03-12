@@ -1,9 +1,11 @@
 <?php
+
+require_once __DIR__ . "/Post.php";
 require_once __DIR__ . "/../../config/db_module.php";
 
-class PostModel {
+class PostModel extends Post {
 
-    public function getAllPosts() {
+    public function getAllPosts(){
 
         $link = null;
         taoKetNoi($link);
@@ -39,5 +41,5 @@ class PostModel {
 
         return $result;
     }
+
 }
-?>
