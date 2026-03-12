@@ -1,9 +1,11 @@
 <?php
 require_once __DIR__ . "/../models/PostModel.php";
 
-class PostController {
+class PostController
+{
 
-    public function index() {
+    public function index()
+    {
 
         $model = new PostModel();
 
@@ -12,24 +14,24 @@ class PostController {
         require_once __DIR__ . "/../views/home.php";
     }
 
-    public function create() {
+    public function create()
+    {
         require_once __DIR__ . "/../views/createpost.php";
     }
 
-    public function store(){
+    public function store()
+    {
+        if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['author'])) {
 
-    if(isset($_POST['title']) && isset($_POST['content']) && isset($_POST['author'])){
+            $post = new PostModel(
+                $_POST['title'],
+                $_POST['content'],
+                $_POST['author']
+            );
 
-        $title = $_POST['title'];
-        $content = $_POST['content'];
-        $author = $_POST['author'];
+            $post->createPost();
 
-        $model = new PostModel();
-
-        $model->createPost($title,$content,$author);
-
-        header("Location: index.php");
+            header("Location: index.php");
+        }
     }
 }
-}
-?>

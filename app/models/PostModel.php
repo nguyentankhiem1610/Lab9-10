@@ -3,43 +3,50 @@
 require_once __DIR__ . "/Post.php";
 require_once __DIR__ . "/../../config/db_module.php";
 
-class PostModel extends Post {
-
-    public function getAllPosts(){
-
+class PostModel extends Post
+{
+    public function __construct($title = "", $content = "", $author = "")
+    {
+        parent::__construct($title, $content, $author);
+    }
+    public function getAllPosts()
+    {
         $link = null;
         taoKetNoi($link);
 
         $query = "SELECT * FROM posts ORDER BY created_at DESC";
 
-        $result = chayTruyVanTraVeDL($link,$query);
+        $result = chayTruyVanTraVeDL($link, $query);
 
         $data = [];
 
-        if($result){
-            while($row = mysqli_fetch_assoc($result)){
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $data[] = $row;
             }
         }
 
-        giaiPhongBoNho($link,$result);
+        giaiPhongBoNho($link, $result);
 
         return $data;
     }
 
-    public function createPost($title,$content,$author){
-
+    public function createPost()
+    {
         $link = null;
         taoKetNoi($link);
 
-        $query = "INSERT INTO posts(title,content,author)
-                  VALUES('$title','$content','$author')";
+        $title = $this->getTitle();
+        $content = $this->getContent();
+        $author = $this->getAuthor();
 
-        $result = chayTruyVanKhongTraVeDL($link,$query);
+        $query = "INSERT INTO posts(title, content, author)
+                  VALUES('$title', '$content', '$author')";
 
-        giaiPhongBoNho($link,null);
+        $result = chayTruyVanKhongTraVeDL($link, $query);
+
+        giaiPhongBoNho($link, null);
 
         return $result;
     }
-
 }
